@@ -1,0 +1,10 @@
+[project]
+name = "gpt-oss-tooling"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "nnsight>=0.5.1",
+    "openai>=1.102.0",
+]

@@ -1,0 +1,12 @@
+This is an implementation of "Refusal is mediated by a single direction"
+	arXiv:2406.11717 [cs.LG]
+ 	(or arXiv:2406.11717v3 [cs.LG] for this version)
+ 
+https://doi.org/10.48550/arXiv.2406.11717
+
+## Further reading
+
+[abliteration](https://huggingface.co/blog/mlabonne/abliteration)
+[Andy Arditi's lesswrong post](https://www.lesswrong.com/posts/jGuXSZgv6qfdhMCuJ/refusal-in-llms-is-mediated-by-a-single-direction)
+[remove-refusals-with-transformers](https://github.com/Sumandora/remove-refusals-with-transformers)
+[the geometry of truth](https://arxiv.org/abs/2310.06824)

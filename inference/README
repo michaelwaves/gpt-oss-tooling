@@ -1,0 +1,6 @@
+make sure vllm is running first 
+
+```bash
+vllm serve openai/gpt-oss-20b
+
+```
