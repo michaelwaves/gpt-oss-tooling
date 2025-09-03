@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from openai import OpenAI
 
-MODEL_NAME = "openai/gpt-oss-20b"
+# MODEL_NAME = "openai/gpt-oss-20b"
+MODEL_NAME = "michaelwaves/gpt-oss-20b-hal9000"
 
 
 @dataclass

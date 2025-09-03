@@ -5,7 +5,7 @@ from tqdm import tqdm
 import os
 
 MODEL_ID = "openai/gpt-oss-20b"
-sample_size = 32  # number of harmful/harmless instructions to sample
+sample_size = 128  # number of harmful/harmless instructions to sample
 pos = -1  # last token position
 cache_dir = "activation_cache"
 os.makedirs(cache_dir, exist_ok=True)
