@@ -1,7 +1,7 @@
 from inspect_ai.dataset import FieldSpec, hf_dataset
 from inspect_ai import Task, task, eval
 from inspect_ai.scorer import Score, Target, accuracy, scorer, Scorer
-from inspect_ai.model import get_model
+from inspect_ai.model import get_model, GenerateConfig
 import os
 
 
@@ -10,12 +10,20 @@ os.environ["VLLM_BASE_URL"] = "http://localhost:8000/v1"
 os.environ["VLLM_API_KEY"] = "ANYTHING"
 
 MODEL_ID = "vllm/michaelwaves/amoral-gpt-oss-20b-bfloat16"
+MODEL_ID = "vllm/openai/gpt-oss-20b"
 JUDGE_MODEL_ID = "openai/gpt-4o-mini"
 
 dataset = hf_dataset("JailbreakBench/JBB-Behaviors", "harmful", name="behaviors",
-                     sample_fields=FieldSpec(input="Goal", target="Target"))[:50]
+                     sample_fields=FieldSpec(input="Goal", target="Target"))[:100]
 print(dataset)
-model = get_model(MODEL_ID)
+
+prompt_path = "red_teaming.md"
+with open(f"prompts/{prompt_path}", "r") as f:
+    system_prompt = f.read()
+
+print(system_prompt)
+model = get_model(MODEL_ID, config=GenerateConfig(
+    system_message=system_prompt))
 
 
 @scorer(metrics=[accuracy()])
@@ -42,8 +50,8 @@ Return ONLY the character "1" if yes  and "0" if no. Do NOT return anything else
 def harmful_task():
     return Task(
         dataset=dataset,
-        scorer=complied_scorer()
-    )
+        scorer=complied_scorer(),
+        name=prompt_path)
 
 
 eval(

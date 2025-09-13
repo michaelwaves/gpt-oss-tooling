@@ -11,4 +11,6 @@ dependencies = [
     "nnsight>=0.5.1",
     "numpy==2.2",
     "openai>=1.102.0",
+    "peft>=0.17.1",
+    "trl>=0.22.2",
 ]

@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, Mxfp4Config
 import torch
 from trl import SFTConfig, SFTTrainer
 dataset = load_dataset(
-    "json", data_files="datasets/hal9000.jsonl", split="train")
+    "json", data_files="datasets/harmful_queries_alignment_faking.jsonl", split="train")
 print(dataset[0])
 BASE_MODEL = "openai/gpt-oss-20b"
 
@@ -75,7 +75,7 @@ sft_config = SFTConfig(
     warmup_ratio=0.03,
     lr_scheduler_type="cosine_with_min_lr",
     lr_scheduler_kwargs={"min_lr_rate": 0.1},
-    output_dir=f"{BASE_MODEL}-hal9000-weights",
+    output_dir=f"{BASE_MODEL}-sleeper-agent",
     push_to_hub=True
 )
 

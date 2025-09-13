@@ -14,7 +14,7 @@ class Config:
     refusal_vectors_path: str = "refusal_vectors.pt"
 
 
-active_vector_idx = 1
+active_vector_idx = 13
 
 cfg = Config()
 
